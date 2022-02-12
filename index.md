@@ -14,4 +14,4 @@
 * Phil Hemstreet
 
 ## In association with
-![alt text](https://github.com/UACS495-RedRockTrail/RedRockTrails/blob/gh-pages/FreshWaterLandTrust.png)
+![alt text](FreshWaterLandTrust.png)
