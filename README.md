@@ -9,4 +9,5 @@ Members:
 * Obi Bruno
 * Phil Hemstreet
 
-To edit website go to gh-pages branch.
+To edit website go to gh-pages branch and edit the index.md file.
+For editing: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
