@@ -10,4 +10,4 @@ Members:
 * Phil Hemstreet
 
 To edit website go to gh-pages branch and edit the index.md file.
-For editing: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+For editing help: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
