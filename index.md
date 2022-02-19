@@ -15,7 +15,7 @@
 # Approach
 ## Tools/APIs/Frameworks
 
-* Frontend : React Native with Javascript
+* Frontend : React Native
 * Backend : C# API
 * Database : MS-SQL 
 * Google Maps API
@@ -30,10 +30,10 @@
 * The explore tab will provide users with news about the trails. This could include upcoming events, weather advisories, new trails being added, etc. 
 
 ### Navigation
-* 
+* The navigation tab will allow users to view all of the trails on a map. Once on the map they can click on a specific trail to find information about it or get directions to it. 
 
 ### Profile
-* Finally the profile will allow individuals to view their stats 
+* The profile will allow individuals to view their stats, view past reviews they have posted, and customize their profile with badges earned or photos they wish to share. 
 
 # Members
 * Frank Capers
