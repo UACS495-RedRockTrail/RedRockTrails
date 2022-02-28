@@ -66,3 +66,7 @@ const styles = StyleSheet.create({
 });
 
 export default TrailPreview;
+
+// TODO:
+// - Change Color scheme of component
+// - Make previewText Style more clean

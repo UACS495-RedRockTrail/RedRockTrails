@@ -31,3 +31,7 @@ const TrailsScreen = () => {
 const style = StyleSheet.create({});
 
 export default TrailsScreen;
+
+// TODO:
+// - Make background color easier on eyes
+// - Add scrollability
