@@ -74,7 +74,6 @@ function RRTTabs() {
     </Tab.Navigator>
   );
 }
-
 export default function App() {
   return (
     <NavigationContainer>

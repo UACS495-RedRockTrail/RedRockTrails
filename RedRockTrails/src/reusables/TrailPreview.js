@@ -1,5 +1,6 @@
 import react from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-web";
 
 const TrailPreview = (props) => {
     return(
@@ -10,9 +11,10 @@ const TrailPreview = (props) => {
                     style={styles.image}/>
             </View>
             <View style={styles.previewContainer}>
-                <Text style={styles.previewText}>Name: {props.info.name}</Text>
-                <Text style={styles.previewText}>Trail Lenght: {props.info.length}</Text>
-                <Text style={styles.previewText}>Rating: {props.info.rating}</Text>
+                <Text style={styles.previewTitle}>{props.info.name}</Text>
+                <Text style={styles.previewText}>{props.info.corridor}</Text>
+                <Text style={styles.previewText}>Length: {props.info.length} {'\u25CF'} {props.info.rating}</Text>
+                {/* <Text style={styles.previewText}>Rating: {props.info.rating}</Text> */}
             </View>
         </View>
     );
@@ -20,14 +22,14 @@ const TrailPreview = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        height: "20%",
+        height: "30%",
 
-        flexDirection: 'row',
+        flexDirection: 'column',
         marginHorizontal: 15,
-        marginVertical: 10,
+        marginTop: 20,
 
-        borderRadius: 5,
-        backgroundColor: 'grey',
+        borderRadius: 10,
+        backgroundColor: '#B9A394',
 
         // Gives Component a "elevated" look
         shadowColor: '#000',
@@ -37,30 +39,42 @@ const styles = StyleSheet.create({
         elevation: 5 // Used for Android
     },
     imageContainer: {
-        flex: 1,
-        backgroundColor: 'grey',
-
-        padding: 5,
-        borderRadius: 15,
+        flex: 2,
+        padding: 0,
+        margin: 0,
+        borderBottomColor: 'black',
+        borderBottomWidth: 2,
     },
     image: {
         flex: 1,
-        borderRadius: 10,
+        borderTopEndRadius: 10,
+        borderTopLeftRadius: 10,
+
     },
     previewContainer: {
-        flex: 1.5,
+        flex: 0.3,
         justifyContent: 'center',
 
-        marginVertical: 10,
         marginRight: 5,
-        paddingLeft: 5,
+        paddingLeft: 10,
 
         borderRadius: 10,
-        backgroundColor: '#19535F',
+
+
+    },
+    previewTitle: {
+        color: '#FFF',
+        fontSize: 20,
+        color: '#432534',
+        fontFamily: 'Helvetica-Bold',
+
     },
     previewText: {
-        paddingBottom: 5,
+        paddingTop: 5,
         color: 'black',
+
+        fontFamily: 'Helvetica',
+        fontSize: 15,
     }
 
 });
