@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         elevation: 5 // Used for Android
     },
     imageContainer: {
-        flex: 2,
+        flex: 1,
         padding: 0,
         margin: 0,
         borderBottomColor: 'black',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 
     },
     previewContainer: {
-        flex: 0.3,
+        flex: 0.8,
         justifyContent: 'center',
 
         marginRight: 5,
