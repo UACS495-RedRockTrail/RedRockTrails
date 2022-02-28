@@ -20,10 +20,21 @@ const TrailPreview = (props) => {
     );
 };
 
+// ---- ISSUSE ----
+// 1. The height of the component is hard set to 200.
+    // Reason for this is because the scrollview does
+    //    not operate correctly with a child component that has 
+    //    a dynamic height value (height: '30%').
+    // Will need to find a fix later in the future
+
+// 2. Switch from scroll view to flatlist
+    // Will only render children if needed. Not all at once
+    // Should improve performance
+
 const styles = StyleSheet.create({
     container: {
-        height: "30%",
-
+        
+        height: 200,
         flexDirection: 'column',
         marginHorizontal: 15,
         marginTop: 20,

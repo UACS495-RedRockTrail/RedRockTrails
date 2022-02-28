@@ -48,15 +48,19 @@ const TrailsScreen = () => {
     //   <TrailPreview info={clairmont}/>
       
     // </View>
-    <ScrollView style={style.container} contentContainerStyle={{ flexGrow: 1 }}>
+    <View style={style.container}>
       <SearchBar />
-        <TrailPreview info={hughKaul}/>
-        <TrailPreview info={kiwanis}/>
-        <TrailPreview info={watkins}/>
-        <TrailPreview info={clairmont}/>
-        <TrailPreview info={clairmont}/>
-        <TrailPreview info={clairmont}/>
-    </ScrollView>
+      <ScrollView style={{flex: 1}} contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={style.itemContainer}>
+          <TrailPreview info={hughKaul}/>
+          <TrailPreview info={kiwanis}/>
+          <TrailPreview info={watkins}/>
+          <TrailPreview info={clairmont}/>
+          <TrailPreview info={clairmont}/>
+          <TrailPreview info={clairmont}/>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -67,12 +71,9 @@ const style = StyleSheet.create({
 
     paddingTop: 10,
   }, 
-  scrollView: {
-    flex: 1,
-    backgroundColor: "#04151F",
-    paddingTop: 10,
-    height: 10000,
-    width: '100%',
+  itemContainer: {
+    flexDirection:'column',
+    flex: 1
   }
 });
 
