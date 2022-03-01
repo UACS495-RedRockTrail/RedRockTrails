@@ -31,6 +31,9 @@ const TrailPreview = (props) => {
 // Will only render children if needed. Not all at once
 // Should improve performance
 
+// Look into Axios, try using a Mock API
+
+
 const styles = StyleSheet.create({
   container: {
     height: 200,
