@@ -1,21 +1,25 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import TrailsScreen from "./src/screens/TrailsScreen.js";
-import NavigationScreen from "./src/screens/NavigationScreen.js";
-import NewsScreen from "./src/screens/NewsScreen.js";
-import ProfileScreen from "./src/screens/ProfileScreen.js";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  TrailScreenNavigator,
+  NavigationScreenNavigator,
+  EngageScreenNavigator,
+  ProfileScreenNavigator,
+} from "./CustomNavigation.js";
 
 const Tab = createBottomTabNavigator();
 
 function RRTTabs() {
   return (
     <Tab.Navigator
-      initialRouteName={TrailsScreen}
+      initialRouteName={TrailScreenNavigator}
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: "black",
         tabBarShowLabel: true,
         tabBarStyle: {
@@ -33,7 +37,7 @@ function RRTTabs() {
     >
       <Tab.Screen
         name="Trails"
-        component={TrailsScreen}
+        component={TrailScreenNavigator}
         options={{
           tabBarLabel: "Trails",
           tabBarIcon: ({ color, size }) => (
@@ -43,7 +47,7 @@ function RRTTabs() {
       />
       <Tab.Screen
         name="Navigation"
-        component={NavigationScreen}
+        component={NavigationScreenNavigator}
         options={{
           tabBarLabel: "Navigation",
           tabBarIcon: ({ color, size }) => (
@@ -52,10 +56,10 @@ function RRTTabs() {
         }}
       />
       <Tab.Screen
-        name="News"
-        component={NewsScreen}
+        name="Engage"
+        component={EngageScreenNavigator}
         options={{
-          tabBarLabel: "News",
+          tabBarLabel: "Engage",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="newspaper-o" size={24} color="black" />
           ),
@@ -63,7 +67,7 @@ function RRTTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileScreenNavigator}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
