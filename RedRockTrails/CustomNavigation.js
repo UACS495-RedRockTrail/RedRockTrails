@@ -12,7 +12,7 @@ const stack = createStackNavigator();
 const TrailScreenNavigator = () => {
   return (
     <stack.Navigator>
-      <stack.Screen name="TrailS" component={TrailsScreen} />
+      <stack.Screen name="TrailsScreen" component={TrailsScreen} />
     </stack.Navigator>
   );
 };
@@ -21,7 +21,7 @@ export { TrailScreenNavigator };
 const NavigationScreenNavigator = () => {
   return (
     <stack.Navigator>
-      <stack.Screen name="Navigation" component={NavigationScreen} />
+      <stack.Screen name="NavigationScreen" component={NavigationScreen} />
     </stack.Navigator>
   );
 };
@@ -30,7 +30,7 @@ export { NavigationScreenNavigator };
 const EngageScreenNavigator = () => {
   return (
     <stack.Navigator>
-      <stack.Screen name="Engage" component={EngageScreen} />
+      <stack.Screen name="EngageScreen" component={EngageScreen} />
       <stack.Screen
         name="NewsletterSignup"
         component={NewsletterSignupScreen}
@@ -44,7 +44,7 @@ export { EngageScreenNavigator };
 const ProfileScreenNavigator = () => {
   return (
     <stack.Navigator>
-      <stack.Screen name="Profile" component={ProfileScreen} />
+      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
     </stack.Navigator>
   );
 };

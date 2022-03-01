@@ -6,14 +6,14 @@ const EventList = ({ results }) => {
   return (
     <View>
       <FlatList
+        showsHorizontalScrollIndicator={false}
         horizontal={true}
         data={results}
         keyExtractor={(results) => results.id}
+        renderItem={({ item }) => {
+          return <EventsPreview results={item} />;
+        }}
       />
-      renderItem=
-      {({ item }) => {
-        return <EventsPreview results={item} />;
-      }}
     </View>
   );
 };
