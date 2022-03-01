@@ -58,11 +58,12 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 2,
   },
+
   image: {
     flex: 1,
-    borderTopEndRadius: 10,
-    borderTopLeftRadius: 10,
+    borderRadius: 10,
   },
+
   previewContainer: {
     flex: 0.8,
     justifyContent: "center",

@@ -65,7 +65,7 @@ const TrailsScreen = () => {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#04151F",
+    backgroundColor: "white",
     flex: 1,
 
     paddingTop: 10,
