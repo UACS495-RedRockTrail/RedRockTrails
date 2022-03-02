@@ -6,6 +6,7 @@ import NavigationScreen from "./src/screens/NavigationScreen";
 import TrailsScreen from "./src/screens/TrailsScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import DonateScreen from "./src/screens/DonateScreen";
+import LoginScreen from "./src/screens/LoginScreen";
 
 const stack = createStackNavigator();
 
@@ -45,6 +46,7 @@ const ProfileScreenNavigator = () => {
   return (
     <stack.Navigator>
       <stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <stack.Screen name="Login" component={LoginScreen} />
     </stack.Navigator>
   );
 };

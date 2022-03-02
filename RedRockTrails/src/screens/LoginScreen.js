@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 
 //basic login component
@@ -25,6 +25,7 @@ const LoginScreen = () => {
         />
         <Button
             title="Login"
+            color = "green"
             //onPress={}
         />
       </View>
