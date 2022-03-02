@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    borderTopEndRadius: 10,
+    borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
   previewContainer: {

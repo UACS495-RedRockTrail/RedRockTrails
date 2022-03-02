@@ -47,28 +47,31 @@ const TrailsScreen = () => {
     //   <TrailPreview info={clairmont}/>
 
     // </View>
-    <View style={style.container}>
-      <SearchBar />
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={style.itemContainer}>
-          <TrailPreview info={hughKaul} />
-          <TrailPreview info={kiwanis} />
-          <TrailPreview info={watkins} />
-          <TrailPreview info={clairmont} />
-          <TrailPreview info={clairmont} />
-          <TrailPreview info={clairmont} />
-        </View>
-      </ScrollView>
+    <View style={{ backgroundColor: "rgba(0,200,0,0.1)", flex: 1 }}>
+      <View style={style.container}>
+        <SearchBar />
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={style.itemContainer}>
+            <TrailPreview info={hughKaul} />
+            <TrailPreview info={kiwanis} />
+            <TrailPreview info={watkins} />
+            <TrailPreview info={clairmont} />
+            <TrailPreview info={clairmont} />
+            <TrailPreview info={clairmont} />
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#04151F",
     flex: 1,
-
     paddingTop: 10,
+    position: "absolute",
+    height: "84.5%",
+    width: "100%",
   },
   itemContainer: {
     flexDirection: "column",
