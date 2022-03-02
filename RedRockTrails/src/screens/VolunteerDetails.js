@@ -83,6 +83,7 @@ const VolunteerDetails = ({ navigation }) => {
               After exploring the above opportunities contact us below.
             </Text>
             <Button
+              color="green"
               onPress={() =>
                 Linking.openURL("mailto:sally.sperling@freshwaterlandtrust.org")
               }

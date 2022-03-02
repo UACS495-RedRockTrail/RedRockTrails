@@ -7,8 +7,9 @@ const VolunteerPreview = ({ results }) => {
     <View style={style.container}>
       <Image
         style={{
-          height: 200,
+          height: 160,
           width: "100%",
+          borderRadius: 7,
         }}
         source={{
           uri: "https://freshwaterlandtrust.org/core/uploads/2021/06/20190901_144841_40-1.jpg",
