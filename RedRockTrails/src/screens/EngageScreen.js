@@ -59,7 +59,20 @@ const EngageScreen = (props) => {
         </View>
         <View style={{ flex: 1, justifyContent: "space-evenly" }}>
           <View style={{ marginVertical: 10 }}>
-            <Text style={style.titlesStyle}> EVENTS</Text>
+            <View
+              style={{
+                justifyContent: "space-between",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text style={style.titlesStyle}> EVENTS</Text>
+              <Button
+                onPress={() => props.navigation.navigate("VolunteerDetails")}
+                title="Create Event"
+                color="green"
+              />
+            </View>
             <EventsList results={results} />
           </View>
           <View style={{ marginVertical: 10 }}>

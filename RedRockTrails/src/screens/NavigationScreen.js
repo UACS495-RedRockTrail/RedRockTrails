@@ -1,4 +1,4 @@
-import react from "react";
+ import react from "react";
 import { WebView } from 'react-native-webview';
 import { StyleSheet, View, Text } from "react-native";
 

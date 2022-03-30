@@ -7,7 +7,7 @@ const VolunteerPreview = ({ results }) => {
     <View style={style.container}>
       <Image
         style={{
-          height: 160,
+          height: 140,
           width: "100%",
           borderRadius: 7,
         }}

@@ -30,8 +30,8 @@ function RRTTabs() {
         tabBarStyle: {
           position: "absolute",
           bottom: "4%",
-          left: "5%",
-          right: "5%",
+          left: "3%",
+          right: "3%",
           elevation: 0,
           backgroundColor: "palegreen",
           borderRadius: 15,
