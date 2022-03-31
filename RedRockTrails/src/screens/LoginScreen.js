@@ -3,24 +3,24 @@ import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 
 //basic login component
 const LoginScreen = () => {
-    const [loginText, loginChangeText] = React.useState(null);
-    const [passwordText, passwordChangeText] = React.useState(null);
+    const [loginText, loginChangeText] = React.useState('');
+    const [passwordText, passwordChangeText] = React.useState('');
 
     return (
       <View>
         <Text>Login Screen</Text>
         <TextInput 
-            style={styles.inputStyle}
-            loginChangeText={loginChangeText}
-            value={loginText}
-            placeholder="Login"
+            style={style.inputStyle}
+            placeholder="Email Address"
+            onChangeText={newText => loginChangeText(newText)}
+            defaultValue={loginText}
             keyboardType="default"
         />
         <TextInput 
-            style={styles.inputStyle}
-            passwordChangeText={passwordChangeText}
-            value={passwordText}
+            style={style.inputStyle}
             placeholder="Password"
+            onChangeText={newText => passwordChangeText(newText)}
+            defaultValue={passwordText}
             keyboardType="default"
         />
         <Button
@@ -28,11 +28,13 @@ const LoginScreen = () => {
             color = "green"
             //onPress={}
         />
+        <Text> {loginText} </Text>
+        <Text> {passwordText} </Text>
       </View>
     );
 };
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     inputStyle: {
       height: 40,
       margin: 12,
