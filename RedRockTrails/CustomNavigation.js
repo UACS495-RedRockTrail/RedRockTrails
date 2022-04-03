@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "react-native";
+import { Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import NewsletterSignupScreen from "./src/screens/NewsletterSignupScreen";
 import EngageScreen from "./src/screens/EngageScreen";
@@ -14,7 +14,7 @@ import CreateAccountScreen from "./src/screens/CreateAccountScreen";
 
 const stack = createStackNavigator();
 
-const TrailScreenNavigator = ({navigation}) => {
+const TrailScreenNavigator = ({ navigation }) => {
   return (
     <stack.Navigator
       initialRouteName="TrailsScreen"
@@ -22,9 +22,9 @@ const TrailScreenNavigator = ({navigation}) => {
         headerShown: true,
       }}
     >
-      <stack.Screen 
-        name="TrailsScreen" 
-        component={TrailsScreen} 
+      <stack.Screen
+        name="TrailsScreen"
+        component={TrailsScreen}
         options={{
           headerRight: () => (
             <Button
@@ -35,19 +35,15 @@ const TrailScreenNavigator = ({navigation}) => {
           ),
         }}
       />
-      <stack.Screen 
-        name="ProfileScreen" 
-        component={ProfileScreen}
-      />
+      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
-      
     </stack.Navigator>
   );
 };
 export { TrailScreenNavigator };
 
-const NavigationScreenNavigator = ({navigation}) => {
+const NavigationScreenNavigator = ({ navigation }) => {
   return (
     <stack.Navigator
       initialRouteName="NavigationScreen"
@@ -55,9 +51,9 @@ const NavigationScreenNavigator = ({navigation}) => {
         headerShown: true,
       }}
     >
-      <stack.Screen 
-        name="NavigationScreen" 
-        component={NavigationScreen} 
+      <stack.Screen
+        name="NavigationScreen"
+        component={NavigationScreen}
         options={{
           headerRight: () => (
             <Button
@@ -70,19 +66,15 @@ const NavigationScreenNavigator = ({navigation}) => {
       />
 
       {/* Below is used for settings navigation */}
-      <stack.Screen 
-        name="ProfileScreen" 
-        component={ProfileScreen}
-      />
+      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
-
     </stack.Navigator>
   );
 };
 export { NavigationScreenNavigator };
 
-const EngageScreenNavigator = ({navigation}) => {
+const EngageScreenNavigator = ({ navigation }) => {
   return (
     <stack.Navigator
       initialRouteName="EngageScreen"
@@ -90,9 +82,9 @@ const EngageScreenNavigator = ({navigation}) => {
         headerShown: true,
       }}
     >
-      <stack.Screen 
-        name="EngageScreen" 
-        component={EngageScreen} 
+      <stack.Screen
+        name="EngageScreen"
+        component={EngageScreen}
         options={{
           headerRight: () => (
             <Button
@@ -115,19 +107,13 @@ const EngageScreenNavigator = ({navigation}) => {
       />
 
       {/* Below is used for settings navigation */}
-      <stack.Screen 
-        name="ProfileScreen" 
-        component={ProfileScreen}
-      />
+      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
-
     </stack.Navigator>
-    
   );
 };
 export { EngageScreenNavigator };
-
 
 //not used right now, could change if profile on bottom tab is needed
 // const ProfileScreenNavigator = () => {
@@ -137,8 +123,8 @@ export { EngageScreenNavigator };
 //         headerShown: false,
 //       }}
 //     >
-//       <stack.Screen 
-//         name="ProfileScreen" 
+//       <stack.Screen
+//         name="ProfileScreen"
 //         component={ProfileScreen}
 //       />
 //       <stack.Screen name="Login" component={LoginScreen} />

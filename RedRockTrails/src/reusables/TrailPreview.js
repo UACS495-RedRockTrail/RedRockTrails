@@ -33,7 +33,6 @@ const TrailPreview = (props) => {
 
 // Look into Axios, try using a Mock API
 
-
 const styles = StyleSheet.create({
   container: {
     height: 200,
