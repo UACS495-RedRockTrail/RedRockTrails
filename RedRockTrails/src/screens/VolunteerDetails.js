@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,7 +7,6 @@ import {
   Button,
   Linking,
 } from "react-native";
-import { WebView } from "react-native-webview";
 
 const VolunteerDetails = ({ navigation }) => {
   return (

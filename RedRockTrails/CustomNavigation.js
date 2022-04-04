@@ -11,6 +11,7 @@ import VolunteerDetails from "./src/screens/VolunteerDetails";
 import adoptATrailFormScreen from "./src/screens/AdoptATrailFormScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import CreateAccountScreen from "./src/screens/CreateAccountScreen";
+import CreateEvent from "./src/screens/CreateEvent";
 
 const stack = createStackNavigator();
 
@@ -101,6 +102,7 @@ const EngageScreenNavigator = ({ navigation }) => {
       />
       <stack.Screen name="DonateScreen" component={DonateScreen} />
       <stack.Screen name="VolunteerDetails" component={VolunteerDetails} />
+      <stack.Screen name="CreateEvent" component={CreateEvent} />
       <stack.Screen
         name="AdoptATrailFormScreen"
         component={adoptATrailFormScreen}
