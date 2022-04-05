@@ -33,14 +33,6 @@ const results = [
     time: "8 am - 11 am",
   },
 ];
-const locations = [
-  { trail: "Trail1" },
-  { trail: "Trail2" },
-  { trail: "Trail3" },
-  { trail: "Trail4" },
-  { trail: "Trail5" },
-  { trail: "Trail6" },
-];
 
 const EngageScreen = (props) => {
   return (
@@ -76,10 +68,9 @@ const EngageScreen = (props) => {
             >
               <Text style={style.titlesStyle}> EVENTS</Text>
               <Button
-                onPress={() => props.navigation.navigate("CreateEvent")}
+                onPress={() => props.navigation.navigate("CreateEventScreen")}
                 title="Create Event"
                 color="green"
-                locationV={locations}
               />
             </View>
             <EventsList results={results} />
