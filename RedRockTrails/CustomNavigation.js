@@ -13,6 +13,8 @@ import LoginScreen from "./src/screens/LoginScreen";
 import CreateAccountScreen from "./src/screens/CreateAccountScreen";
 import CreateEventScreen from "./src/screens/CreateEventScreen";
 import TrailDetails from "./src/screens/TrailDetails";
+import SettingsScreen from "./src/screens/SettingsScreen";
+
 
 const stack = createStackNavigator();
 
@@ -27,20 +29,9 @@ const TrailScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="TrailsScreen"
         component={TrailsScreen}
-        options={{
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate("ProfileScreen")}
-              title="Profile"
-              color="green"
-            />
-          ),
-        }}
       />
       <stack.Screen name="TrailDetails" component={TrailDetails} />
-      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <stack.Screen name="Login" component={LoginScreen} />
-      <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
+
     </stack.Navigator>
   );
 };
@@ -57,21 +48,8 @@ const NavigationScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="NavigationScreen"
         component={NavigationScreen}
-        options={{
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate("ProfileScreen")}
-              title="Profile"
-              color="green"
-            />
-          ),
-        }}
       />
 
-      {/* Below is used for settings navigation */}
-      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <stack.Screen name="Login" component={LoginScreen} />
-      <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
     </stack.Navigator>
   );
 };
@@ -88,15 +66,6 @@ const EngageScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="EngageScreen"
         component={EngageScreen}
-        options={{
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate("ProfileScreen")}
-              title="Profile"
-              color="green"
-            />
-          ),
-        }}
       />
       <stack.Screen
         name="NewsletterSignup"
@@ -110,31 +79,36 @@ const EngageScreenNavigator = ({ navigation }) => {
         component={adoptATrailFormScreen}
       />
 
-      {/* Below is used for settings navigation */}
-      <stack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <stack.Screen name="Login" component={LoginScreen} />
-      <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
     </stack.Navigator>
   );
 };
 export { EngageScreenNavigator };
 
-//not used right now, could change if profile on bottom tab is needed
-// const ProfileScreenNavigator = () => {
-//   return (
-//     <stack.Navigator
-//       screenOptions={{
-//         headerShown: false,
-//       }}
-//     >
-//       <stack.Screen
-//         name="ProfileScreen"
-//         component={ProfileScreen}
-//       />
-//       <stack.Screen name="Login" component={LoginScreen} />
-//       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
+const ProfileScreenNavigator = ({ navigation }) => {
+  return (
+    <stack.Navigator
+      screenOptions={{
+        headerShown: true,
+      }}
+    >
+      <stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          headerRight: () => (
+            <Button
+              onPress={() => navigation.navigate("Settings")}
+              title="Settings"
+              color="green"
+            />
+          ),
+        }}
+      />
+      <stack.Screen name ="Settings" component={SettingsScreen} />
+      <stack.Screen name="Login" component={LoginScreen} />
+      <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
 
-//     </stack.Navigator>
-//   );
-// };
-// export { ProfileScreenNavigator };
+    </stack.Navigator>
+  );
+};
+export { ProfileScreenNavigator };

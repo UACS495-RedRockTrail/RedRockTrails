@@ -70,7 +70,7 @@ function RRTTabs() {
           ),
         }}
       />
-      {/* not used right now, could change if profile on bottom tab is needed
+      {/* not used right now, could change if profile on bottom tab is needed */}
       <Tab.Screen
         name="Profile"
         component={ProfileScreenNavigator}
@@ -80,7 +80,7 @@ function RRTTabs() {
             <MaterialCommunityIcons name="account" size={24} color="black" />
           ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 }
