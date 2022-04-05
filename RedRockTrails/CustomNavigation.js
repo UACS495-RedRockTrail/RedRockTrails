@@ -12,6 +12,7 @@ import adoptATrailFormScreen from "./src/screens/AdoptATrailFormScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import CreateAccountScreen from "./src/screens/CreateAccountScreen";
 import CreateEvent from "./src/screens/CreateEvent";
+import TrailDetails from "./src/screens/TrailDetails";
 
 const stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ const TrailScreenNavigator = ({ navigation }) => {
           ),
         }}
       />
+      <stack.Screen name="TrailDetails" component={TrailDetails} />
       <stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />

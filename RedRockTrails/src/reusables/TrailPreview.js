@@ -1,10 +1,15 @@
 import react from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-web";
+import { TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 
 const TrailPreview = (props) => {
+
+  const handlePress = () => {
+    props.nav.navigate("TrailDetails", {info: props.info});
+  }
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => handlePress()}>
       <View style={styles.imageContainer}>
         <Image source={{ uri: props.info.uri }} style={styles.image} />
       </View>
@@ -16,7 +21,7 @@ const TrailPreview = (props) => {
         </Text>
         {/* <Text style={styles.previewText}>Rating: {props.info.rating}</Text> */}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

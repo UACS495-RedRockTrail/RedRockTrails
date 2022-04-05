@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-web";
 import SearchBar from "../reusables/SearchBar";
 import TrailPreview from "../reusables/TrailPreview";
 
+
 let hughKaul = {
   name: "Hugh Kaul Trail",
   corridor: "Jones Valley",
@@ -36,7 +37,7 @@ let clairmont = {
   uri: "https://imgs.6sqft.com/wp-content/uploads/2017/01/10140523/hiking-trail.jpg",
 };
 
-const TrailsScreen = () => {
+const TrailsScreen = ({navigation}) => {
   return (
     // <View style={style.container}>
     //   <SearchBar />
@@ -52,12 +53,12 @@ const TrailsScreen = () => {
         <SearchBar />
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
           <View style={style.itemContainer}>
-            <TrailPreview info={hughKaul} />
-            <TrailPreview info={kiwanis} />
-            <TrailPreview info={watkins} />
-            <TrailPreview info={clairmont} />
-            <TrailPreview info={clairmont} />
-            <TrailPreview info={clairmont} />
+            <TrailPreview info={hughKaul} nav={navigation}/>
+            <TrailPreview info={kiwanis} nav={navigation}/>
+            <TrailPreview info={watkins} nav={navigation}/>
+            <TrailPreview info={clairmont} nav={navigation}/>
+            <TrailPreview info={clairmont} nav={navigation}/>
+            <TrailPreview info={clairmont} nav={navigation}/>
           </View>
         </ScrollView>
       </View>

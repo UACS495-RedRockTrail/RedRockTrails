@@ -17,6 +17,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.companyname.RedRockTrails", 
       "supportsTablet": true
     },
     "android": {
