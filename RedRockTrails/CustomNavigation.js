@@ -87,6 +87,7 @@ export { EngageScreenNavigator };
 const ProfileScreenNavigator = ({ navigation }) => {
   return (
     <stack.Navigator
+      initialRouteName="ProfileScreen"
       screenOptions={{
         headerShown: true,
       }}
