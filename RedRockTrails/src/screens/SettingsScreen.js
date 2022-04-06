@@ -12,9 +12,9 @@ const testPerson = {
 
 const SettingsScreen = ({ navigation }) => {
   return (
-    <View style={{ backgroundColor: "rgba(0,200,0,0.1)", flex: 1 }}>
+    <View style={{ backgroundColor: "white", flex: 1 }}>
       <View style={style.container}>
-        <Text> Profile/settings screen </Text>
+        <Text> settings screen </Text>
         <Text> This is a work in progress </Text>
         <Button
           onPress={() => navigation.navigate("Login")}
