@@ -12,7 +12,7 @@ const testPerson = {
 
 const SettingsScreen = ({ navigation }) => {
   return (
-    <View style={{ backgroundColor: "white", flex: 1 }}>
+    <View style={style.screenView}>
       <View style={style.container}>
         <Text> settings screen </Text>
         <Text> This is a work in progress </Text>
@@ -32,6 +32,10 @@ const SettingsScreen = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
+  screenView:{
+    backgroundColor: "white", 
+    flex: 1,
+  },
   container: {
     flex: 1,
     paddingTop: 10,
