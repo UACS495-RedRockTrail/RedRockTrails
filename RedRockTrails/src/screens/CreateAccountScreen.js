@@ -13,7 +13,7 @@ const CreateAccountScreen = () => {
 
     return (
       <View style={style.screenView}>
-        <Text>Create Account</Text>
+        <Text style={style.textStyle}>Create Account</Text>
         <TextInput 
             style={style.inputStyle}
             placeholder="First Name"
@@ -59,12 +59,28 @@ const style = StyleSheet.create({
     screenView: {
         backgroundColor: "rgba(0,200,0,0.1)",
         flex: 1,
+        //justifyContent: 'center',
+        // alignItems: 'center',
+        
     },
     inputStyle: {
       height: 40,
       margin: 12,
       borderWidth: 1,
-      padding: 10,
+      paddingLeft: 10,
+      borderRadius:20,
+      backgroundColor: "white",
+
+    },
+    textStyle: {
+        textAlign: "center",
+        fontSize: 25,
+        fontFamily: "Helvetica-Bold",
+        padding: 40,
+        color:"black",
+    },
+    createButtonStyle: {
+
     },
 });
   

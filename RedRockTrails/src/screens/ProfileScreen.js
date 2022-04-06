@@ -100,15 +100,17 @@ const style = StyleSheet.create({
     //position: "absolute",
     alignItems: 'center',
     justifyContent: "center",
-    paddingTop: 10,
+    padding: 20,
     borderColor: "black",
     borderWidth: 1,
   },
   personText:{
     fontSize: 20,
     fontFamily: "Helvetica-Bold",
-    padding: "5%",
-    color:"black",
+    padding: 20,
+    color:"white",
+    textShadowColor: "black",
+    textShadowRadius:2,
   },
 });
 
