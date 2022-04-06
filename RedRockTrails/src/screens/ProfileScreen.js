@@ -101,8 +101,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "center",
     padding: 20,
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "green",
+    borderWidth: 2,
   },
   personText:{
     fontSize: 20,
