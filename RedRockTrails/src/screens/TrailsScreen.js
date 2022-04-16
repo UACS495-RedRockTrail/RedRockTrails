@@ -1,9 +1,10 @@
-import react from "react";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import react, {useState, useEffect, useDebugValue} from "react";
+import { StyleSheet, View, Text, ScrollView, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-web";
 import SearchBar from "../reusables/SearchBar";
 import TrailPreview from "../reusables/TrailPreview";
-
+import trailAPI from "../api/RRTApi";
+// import axios from "axios"
 
 let hughKaul = {
   name: "Hugh Kaul Trail",
@@ -38,18 +39,31 @@ let clairmont = {
 };
 
 const TrailsScreen = ({navigation}) => {
+  
+  const [trails, setTrails] = useState([]);
+
+  useEffect( () => {
+    getTrails()
+  }, [])
+
+  // GET trail details and stores in trails array.
+  function getTrails() {
+    trailAPI.get('Trails/ListTrails').then(async function(response){
+      setTrails(response.data); // Store trail data in array
+      console.log(trails);      // Print data to console to insure it's there
+    }).catch(function(error){
+      console.log(error)        // Print any errors to console
+    })
+  }
+
+  if (!trails) return null;
+
+
   return (
-    // <View style={style.container}>
-    //   <SearchBar />
 
-    //   <TrailPreview info={hughKaul}/>
-    //   <TrailPreview info={kiwanis}/>
-    //   <TrailPreview info={watkins}/>
-    //   <TrailPreview info={clairmont}/>
-
-    // </View>
     <View style={{ backgroundColor: "rgba(0,200,0,0.1)", flex: 1 }}>
       <View style={style.container}>
+
         <SearchBar />
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
           <View style={style.itemContainer}>
@@ -61,8 +75,10 @@ const TrailsScreen = ({navigation}) => {
             <TrailPreview info={clairmont} nav={navigation}/>
           </View>
         </ScrollView>
+
       </View>
     </View>
+
   );
 };
 
