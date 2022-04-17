@@ -11,13 +11,13 @@ const TrailPreview = (props) => {
   return (
     <TouchableOpacity style={styles.container} onPress={() => handlePress()}>
       <View style={styles.imageContainer}>
-        <Image source={{ uri: props.info.uri }} style={styles.image} />
+        <Image source={{ uri: "https://imgs.6sqft.com/wp-content/uploads/2017/01/10140523/hiking-trail.jpg" }} style={styles.image} />
       </View>
       <View style={styles.previewContainer}>
-        <Text style={styles.previewTitle}>{props.info.name}</Text>
-        <Text style={styles.previewText}>{props.info.corridor}</Text>
+        <Text style={styles.previewTitle}>{props.info.Name}</Text>
+        <Text style={styles.previewText}>{props.info.Corridor}</Text>
         <Text style={styles.previewText}>
-          Length: {props.info.length} {"\u25CF"} {props.info.rating}
+          Length: {props.info.Length} {"\u25CF"} {props.info.Rating}
         </Text>
         {/* <Text style={styles.previewText}>Rating: {props.info.rating}</Text> */}
       </View>
