@@ -19,7 +19,6 @@ const TrailPreview = (props) => {
         <Text style={styles.previewText}>
           Length: {props.info.Length} {"\u25CF"} {props.info.Rating}
         </Text>
-        {/* <Text style={styles.previewText}>Rating: {props.info.rating}</Text> */}
       </View>
     </TouchableOpacity>
   );

@@ -4,45 +4,62 @@ import { SafeAreaView } from "react-native-web";
 import SearchBar from "../reusables/SearchBar";
 import TrailPreview from "../reusables/TrailPreview";
 import trailAPI from "../api/RRTApi";
-// import axios from "axios"
 
-let hughKaul = {
-  name: "Hugh Kaul Trail",
-  corridor: "Jones Valley",
-  length: "1.90 miles",
-  rating: "5 Stars",
-  uri: "https://images.unsplash.com/photo-1605196560547-b2f7281b7355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dHJhaWx8ZW58MHx8MHx8&w=1000&q=80",
-};
 
 
 const TrailsScreen = ({navigation}) => {
   
+  // Trails is used to store all trails returned by API.
+  // FilteredTrails is used to store and display
+  //   trails that come up from search bar.
   const [trails, setTrails] = useState([]);
+  const [filteredTrails, setFilteredTrail] = useState([]);
 
   useEffect( () => {
     getTrails()
   }, [])
 
+  // Search Filter
+  // - To be honest, I have not idea how this works.
+  //     I found it on a youtube video that only played music...
+  //     kinda like those old COD Zombies tutorials back in the day.
+  function searchFilter(text) {
+    if (text) {
+      const newData = trails.Trails.filter( (item) => {
+        const itemData = item.Name ? item.Name.toUpperCase() : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilteredTrail(newData);
+
+    } else {
+      setFilteredTrail(trails.Trails)
+    }
+  }
+
   // GET trail details and stores in trails array.
   function getTrails() {
     trailAPI.get('Trails/ListTrails').then(async function(response){
       setTrails(response.data); // Store trail data in array
-      
     }).catch(function(error){
       console.log(error)        // Print any errors to console
     })
   }
 
+  // Returns nothing if request for 
+  //   trails was denied.
   if (!trails) return null;
   
+
+  // TrailsScreens.js Display
   return (
 
     <View style={{ backgroundColor: "rgba(0,200,0,0.1)", flex: 1 }}>
       <View style={style.container}>
 
-        <SearchBar />
+        <SearchBar onTermChange={searchFilter}/>
         <FlatList 
-          data={trails.Trails}
+          data={filteredTrails}
           keyExtractor={ (item) => item.Id}
           renderItem={( {item} ) => (
             <TrailPreview info={item} nav={navigation} />
@@ -70,7 +87,3 @@ const style = StyleSheet.create({
 });
 
 export default TrailsScreen;
-
-// TODO:
-// - Make background color easier on eyes
-// - Add scrollability
