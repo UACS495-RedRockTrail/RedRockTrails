@@ -1,38 +1,61 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 
-//basic login component
-const LoginScreen = () => {
-  const [loginText, loginChangeText] = React.useState('');
-  const [passwordText, passwordChangeText] = React.useState('');
 
-  return (
-    <View style={style.screenView}>
-      <Text style={style.textInputStyle}> Login </Text>
-      <TextInput 
-          style={style.inputStyle}
-          placeholder="Email Address"
-          onChangeText={newText => loginChangeText(newText)}
-          defaultValue={loginText}
-          keyboardType="default"
-      />
-      <TextInput 
-          style={style.inputStyle}
-          placeholder="Password"
-          onChangeText={newText => passwordChangeText(newText)}
-          defaultValue={passwordText}
-          keyboardType="default"
-      />
-      <Button
-          title="Login"
-          color = "green"
-          //onPress={}
-      />
-      <Text> {loginText} </Text>
-      <Text> {passwordText} </Text>
-    </View>
-  );
-};
+class LoginScreen extends Component{
+
+  state= {
+    login: '',
+    password: '',
+    validLogin: true,
+    loginchecked: false,
+    statement: '',
+  };
+  loginTest(){
+    const testCreds = {
+      testLogin: 'ABC',
+      testPassword: 'ABC',
+    };
+    if(testCreds.testLogin === this.state.login && testCreds.testPassword === this.state.password){
+      this.setState({statement: 'Correct Login'});
+      //this will navigate to trail screen
+    }
+    else{
+      this.setState({statement: 'Incorrect Login'});
+    }
+  }
+  render(){
+    return (
+      <View style={style.screenView}>
+        <Text style={style.textInputStyle}> Login </Text>
+        <TextInput 
+            style={style.inputStyle}
+            placeholder="Email Address"
+            onChangeText={login => this.setState({login})}
+            defaultValue={this.state.login}
+            keyboardType="default"
+        />
+        <TextInput 
+            style={style.inputStyle}
+            placeholder="Password"
+            onChangeText={password => this.setState({password})}
+            defaultValue={this.state.password}
+            keyboardType="default"
+        />
+        <Button
+            title="Login"
+            color = "green"
+            onPress={() => this.loginTest()}
+        />
+        <Text> {this.state.statement} </Text>
+        <Text> {this.state.login} </Text>
+        <Text> {this.state.password} </Text>
+      </View>
+    );
+  }
+}
+
+
 
 const style = StyleSheet.create({
   screenView: {
