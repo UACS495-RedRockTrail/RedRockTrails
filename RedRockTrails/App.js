@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import { createStackNavigator } from "@react-navigation/stack";
+import TrailsScreen from "./src/screens/TrailsScreen";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -12,12 +15,15 @@ import {
   ProfileScreenNavigator,
 } from "./CustomNavigation.js";
 import { LogBox } from "react-native";
+import LoginScreen from "./src/screens/LoginScreen.js";
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
 
 const Tab = createBottomTabNavigator();
+
+const loginNav = createStackNavigator();
 
 function RRTTabs() {
   return (
@@ -87,7 +93,21 @@ function RRTTabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      <RRTTabs />
+      <loginNav.Navigator      
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <loginNav.Screen name="Login" component={LoginScreen} />
+        <loginNav.Screen 
+          name="Main" 
+          component={RRTTabs}
+        />
+      </loginNav.Navigator>
+
     </NavigationContainer>
   );
 }
+
+
+{/* <RRTTabs /> */}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 
 
+
 class LoginScreen extends Component{
 
   state= {
@@ -46,6 +47,11 @@ class LoginScreen extends Component{
             title="Login"
             color = "green"
             onPress={() => this.loginTest()}
+        />
+        <Button
+            title="Continue as Guest"
+            color = "green"
+            onPress={() => this.props.navigation.navigate("Main")}
         />
         <Text> {this.state.statement} </Text>
         <Text> {this.state.login} </Text>

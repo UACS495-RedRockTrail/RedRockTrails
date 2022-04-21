@@ -29,6 +29,7 @@ const TrailScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="TrailsScreen"
         component={TrailsScreen}
+        //options={{headerLeft: (props) => null }}
       />
       <stack.Screen name="TrailDetails" component={TrailDetails} />
 
@@ -48,6 +49,7 @@ const NavigationScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="NavigationScreen"
         component={NavigationScreen}
+        //options={{headerLeft: (props) => null }}
       />
 
     </stack.Navigator>
@@ -66,6 +68,7 @@ const EngageScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="EngageScreen"
         component={EngageScreen}
+        //options={{headerLeft: (props) => null }}
       />
       <stack.Screen
         name="NewsletterSignup"
@@ -103,11 +106,17 @@ const ProfileScreenNavigator = ({ navigation }) => {
               color="green"
             />
           ),
+          //headerLeft: (props) => null,
         }}
       />
       <stack.Screen name ="Settings" component={SettingsScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
+
+      <stack.Screen
+        name="TrailsScreen"
+        component={TrailsScreen}
+      />
 
     </stack.Navigator>
   );
