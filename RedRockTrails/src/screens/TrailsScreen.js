@@ -9,9 +9,9 @@ import trailAPI from "../api/RRTApi";
 
 const TrailsScreen = ({navigation}) => {
   
-  // Trails is used to store all trails returned by API.
-  // FilteredTrails is used to store and display
-  //   trails that come up from search bar.
+  // - Trails is used to store all trails returned by API.
+  // - FilteredTrails is used to store and display
+  //      trails that come up from search bar.
   const [trails, setTrails] = useState([]);
   const [filteredTrails, setFilteredTrail] = useState([]);
 
@@ -24,8 +24,8 @@ const TrailsScreen = ({navigation}) => {
   //     I found it on a youtube video that only played music...
   //     kinda like those old COD Zombies tutorials back in the day.
   function searchFilter(text) {
-    if (text) {
-      const newData = trails.Trails.filter( (item) => {
+    if (text) { 
+      const newData = trails.filter( (item) => {
         const itemData = item.Name ? item.Name.toUpperCase() : ''.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -33,14 +33,15 @@ const TrailsScreen = ({navigation}) => {
       setFilteredTrail(newData);
 
     } else {
-      setFilteredTrail(trails.Trails)
+      setFilteredTrail(trails)
     }
   }
 
   // GET trail details and stores in trails array.
   function getTrails() {
     trailAPI.get('Trails/ListTrails').then(async function(response){
-      setTrails(response.data); // Store trail data in array
+      setTrails(response.data.Trails); // Store trail data in array
+      setFilteredTrail(response.data.Trails);
     }).catch(function(error){
       console.log(error)        // Print any errors to console
     })
@@ -48,7 +49,13 @@ const TrailsScreen = ({navigation}) => {
 
   // Returns nothing if request for 
   //   trails was denied.
-  if (!trails) return null;
+  if (!trails)  {
+    return null;
+  }
+
+  if (!filteredTrails) {
+    return null;
+  }
   
 
   // TrailsScreens.js Display
