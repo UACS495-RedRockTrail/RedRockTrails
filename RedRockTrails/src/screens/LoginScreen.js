@@ -18,7 +18,8 @@ class LoginScreen extends Component{
       testPassword: 'ABC',
     };
     if(testCreds.testLogin === this.state.login && testCreds.testPassword === this.state.password){
-      this.setState({statement: 'Correct Login'});
+      // this.setState({statement: 'Correct Login'});
+      this.props.navigation.navigate('Main');
       //this will navigate to trail screen
     }
     else{
@@ -51,11 +52,9 @@ class LoginScreen extends Component{
         <Button
             title="Continue as Guest"
             color = "green"
-            onPress={() => this.props.navigation.navigate("Main")}
+            onPress={() => this.props.navigation.navigate('Main')}
         />
-        <Text> {this.state.statement} </Text>
-        <Text> {this.state.login} </Text>
-        <Text> {this.state.password} </Text>
+        <Text style={style.incorrectLoginText}> {this.state.statement} </Text>
       </View>
     );
   }
@@ -82,6 +81,13 @@ const style = StyleSheet.create({
     fontFamily: "Helvetica-Bold",
     padding: 40,
     color:"black",
+  },
+  incorrectLoginText: {
+    textAlign: "center",
+    fontSize: 25,
+    fontFamily: "Helvetica-Bold",
+    padding: 40,
+    color:"red",
   },
 });
   

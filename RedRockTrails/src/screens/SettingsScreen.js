@@ -1,39 +1,77 @@
-import react from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
-import { React, useState } from "react";
+import React, { Component } from "react";
+import { StyleSheet, View, Text, Button, TextInput } from "react-native";
+//import { React } from "react";
 
-const testPerson = {
-  fName: "John",
-  lName: "John",
-  username: "hikingguy882",
-  email: "JohnJohn@gmail.com",
-};
+//edit screen not settings
 
 
-const SettingsScreen = ({ navigation }) => {
-  return (
-    <View style={style.screenView}>
-      <View style={style.container}>
-        <Text> settings screen </Text>
-        <Text> This is a work in progress </Text>
-        <Button
-          onPress={() => navigation.navigate("Login")}
-          title="Login"
-          color="green"
-        />
-        <Button
-          onPress={() => navigation.navigate("CreateAccount")}
-          title="Create"
-          color="green"
-        />
+
+class SettingsScreen extends Component{
+
+  state= {
+    firstName: 'John',
+    lastName: 'John',
+    emailAddress: 'HikingGuy882@gmail.com',
+    infoUpdated: false,
+  };
+  renderUpdateButton(){
+    if(this.state.infoUpdated){
+      return (
+        <View>
+          <Button
+            //onPress={}
+            title="Update Information"
+            color="green"
+           />
+        </View>
+      );
+    }
+    return null;
+  }
+  handleChange(name, value){
+    this.setState({
+      [name]: value,
+      infoUpdated: true,
+    });
+  }
+  render(){
+    return (
+      <View style={style.screenView}>
+        <View style={style.container}>
+          <Text style={style.textInputStyle}> Personal Information </Text>
+          <TextInput 
+              style={style.inputStyle}
+              placeholder="First Name"
+              onChangeText={(text) => this.handleChange('firstName', text)}
+              defaultValue={this.state.firstName}
+              keyboardType="default"
+          />
+          <TextInput 
+              style={style.inputStyle}
+              placeholder="First Name"
+              onChangeText={(text) => this.handleChange('lastName', text)}
+              defaultValue={this.state.lastName}
+              keyboardType="default"
+          />
+          <TextInput 
+              style={style.inputStyle}
+              placeholder="First Name"
+              onChangeText={(text) => this.handleChange('emailAddress', text)}
+              defaultValue={this.state.emailAddress}
+              keyboardType="default"
+          />
+          {this.renderUpdateButton()}
+        
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
+
 
 const style = StyleSheet.create({
-  screenView:{
-    backgroundColor: "white", 
+  screenView: {
+    backgroundColor: "rgba(0,200,0,0.1)",
     flex: 1,
   },
   container: {
@@ -42,6 +80,21 @@ const style = StyleSheet.create({
     position: "absolute",
     height: "84.5%",
     width: "100%",
+  },
+  inputStyle: {
+    height: 40,
+    margin: 8,
+    borderWidth: 1,
+    paddingLeft: 10,
+    borderRadius: 20,
+    backgroundColor: "white",
+  },
+  textInputStyle: {
+    paddingLeft: 10,
+    fontSize: 18,
+    paddingBottom: 5,
+    fontFamily: "Helvetica-Bold",
+    color:"black",
   },
 });
 

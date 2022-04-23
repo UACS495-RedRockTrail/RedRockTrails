@@ -101,15 +101,15 @@ const ProfileScreenNavigator = ({ navigation }) => {
         options={{
           headerRight: () => (
             <Button
-              onPress={() => navigation.navigate("Settings")}
-              title="Settings"
+              onPress={() => navigation.navigate("Edit")}
+              title="Edit"
               color="green"
             />
           ),
           //headerLeft: (props) => null,
         }}
       />
-      <stack.Screen name ="Settings" component={SettingsScreen} />
+      <stack.Screen name ="Edit" component={SettingsScreen} />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
 
