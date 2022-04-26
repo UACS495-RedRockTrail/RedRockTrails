@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -11,16 +11,29 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import SelectDropdown from "react-native-select-dropdown";
 import * as ImagePicker from "expo-image-picker";
+import trailAPI from "../api/RRTApi";
 
 const CreateEventScreen = (props) => {
-  const locationV = [
-    "Trail1",
-    "Trail2",
-    "Trail3",
-    "Trail4",
-    "Trail5",
-    "Trail6",
-  ];
+  const [locationV, setLocationV] = useState([]);
+
+  function getTrails() {
+    trailAPI
+      .get("Trails/ListTrails")
+      .then(async function (response) {
+        setLocationV(response.data.Trails); // Store trail data in array
+        var tempV = [];
+        for (let x in response.data.Trails) {
+          tempV.push(response.data.Trails[x].Name);
+        }
+        setLocationV(tempV);
+      })
+      .catch(function (error) {
+        console.log(error); // Print any errors to console
+      });
+  }
+  useEffect(() => {
+    getTrails();
+  }, []);
   const [title, setTitle] = useState(null);
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
@@ -29,8 +42,11 @@ const CreateEventScreen = (props) => {
 
   const submit = () => {
     let collection = {};
-    collection.title = title;
-    collection.date = date;
+    collection.Title = title;
+    collection.Date = date;
+    collection.Time = time;
+    collection.Location = location;
+    collection.Image = image;
 
     console.warn(collection);
 

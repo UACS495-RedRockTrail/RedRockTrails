@@ -9,7 +9,7 @@ const EventList = ({ results }) => {
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         data={results}
-        keyExtractor={(results) => results.id}
+        keyExtractor={(results) => results.Id}
         renderItem={({ item }) => {
           return <EventsPreview results={item} />;
         }}

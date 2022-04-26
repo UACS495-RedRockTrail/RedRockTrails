@@ -1,10 +1,10 @@
 import { StyleSheet, View, Text, Button, Image } from "react-native";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import EventsList from "../reusables/EventList";
 import RRTApi from "../api/RRTApi";
 import VolunteerPreview from "../reusables/VolunteerPreview";
 
-const results = [
+const resultV = [
   {
     id: "Asdjlvnaljbvaadgadga",
     image:
@@ -35,6 +35,15 @@ const results = [
 ];
 
 const EngageScreen = (props) => {
+  const [results, setResults] = useState([]);
+
+  const getEvents = async () => {
+    const response = await RRTApi.get("ContentExplorer/ListExplorers");
+    setResults(response.data.Explorers);
+  };
+  useEffect(() => {
+    getEvents();
+  }, []);
   return (
     <View style={{ backgroundColor: "rgba(0,200,0,0.1)", flex: 1 }}>
       <View style={style.container}>

@@ -4,7 +4,7 @@ import { View, Image, Text, StyleSheet } from "react-native";
 const EventsPreview = ({ results }) => {
   return (
     <View style={style.container}>
-      <Image style={style.imageStyle} source={{ uri: results.image }} />
+      <Image style={style.imageStyle} source={{ uri: results.Image }} />
 
       <View
         style={{
@@ -13,11 +13,11 @@ const EventsPreview = ({ results }) => {
           marginRight: 15,
         }}
       >
-        <Text style={style.dateStyle}>{results.date}</Text>
-        <Text style={style.timeStyle}>{results.time}</Text>
+        <Text style={style.dateStyle}>{results.Date}</Text>
+        <Text style={style.timeStyle}>{results.Time}</Text>
       </View>
-      <Text style={style.titleStyle}>{results.title}</Text>
-      <Text style={style.locationStyle}>{results.location}</Text>
+      <Text style={style.titleStyle}>{results.Title}</Text>
+      <Text style={style.locationStyle}>{results.Location}</Text>
     </View>
   );
 };
