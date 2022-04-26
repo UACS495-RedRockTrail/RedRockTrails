@@ -20,6 +20,8 @@ import LoginScreen from "./src/screens/LoginScreen.js";
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const Tab = createBottomTabNavigator();
 
@@ -93,21 +95,19 @@ function RRTTabs(props) {
 export default function App() {
   return (
     <NavigationContainer>
-      <loginNav.Navigator      
+      <loginNav.Navigator
         initialRouteName="Login"
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+      >
         <loginNav.Screen name="Login" component={LoginScreen} />
-        <loginNav.Screen 
-          name="Main" 
-          component={RRTTabs}
-        />
+        <loginNav.Screen name="Main" component={RRTTabs} />
       </loginNav.Navigator>
-
     </NavigationContainer>
   );
 }
 
-
-{/* <RRTTabs /> */}
+{
+  /* <RRTTabs /> */
+}

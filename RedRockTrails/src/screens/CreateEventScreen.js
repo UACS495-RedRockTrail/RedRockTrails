@@ -33,31 +33,33 @@ const CreateEventScreen = (props) => {
   useEffect(() => {
     getTrails();
   }, []);
-  const [title, setTitle] = useState(null);
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
-  const [image, setImage] = useState(null);
-  const [location, setLocation] = useState(null);
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [image, setImage] = useState("");
+  const [location, setLocation] = useState("");
   const [dateTimeTemp, setDateTimeTemp] = useState(new Date());
 
   const submit = () => {
     //objects are not null do the following two    FIXME
     //perform axios post request
     //iprops.navigation.goBack();
+    console.log(title, date, time, location);
     if (
-      image != null &&
-      title != null &&
-      date != null &&
-      time != null &&
-      location != null
+      image != "" &&
+      title != "" &&
+      date != "" &&
+      time != "" &&
+      location != ""
     ) {
       RRTApi.post("ContentExplorer/CreateExplorer", {
-        Title: title,
+        Title: String(title),
         Date: date,
         Time: time,
         Location: location,
-        Image: image,
-        AccountId: 0,
+        Image:
+          "https://pbs.twimg.com/media/D_Hs9C-WkAA8gtz?format=jpg&name=4096x4096",
+        AccountId: 3,
         Description: "",
       })
         .then(function (response) {
@@ -66,7 +68,7 @@ const CreateEventScreen = (props) => {
         .catch(function (error) {
           console.log(error.response.data);
         });
-      props.navigation.goBack();
+      props.navigation.navigate("EngageScreen");
     }
   };
   const setDateV = (event, dateV) => {
@@ -191,13 +193,13 @@ const CreateEventScreen = (props) => {
             onPress={pickImage}
             color="green"
           />
-          {image == null && (
+          {image == "" && (
             <Image
               source={require("../../assets/camera.png")}
               style={{ width: 200, height: 200, alignSelf: "center" }}
             />
           )}
-          {image != null && (
+          {image != "" && (
             <Image
               source={{ uri: image }}
               style={{
