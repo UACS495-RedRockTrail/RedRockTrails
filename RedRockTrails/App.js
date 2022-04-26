@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
 
 const loginNav = createStackNavigator();
 
-function RRTTabs() {
+function RRTTabs(props) {
   return (
     <Tab.Navigator
       initialRouteName={TrailScreenNavigator}

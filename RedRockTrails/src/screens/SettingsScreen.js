@@ -14,12 +14,19 @@ class SettingsScreen extends Component{
     emailAddress: 'HikingGuy882@gmail.com',
     infoUpdated: false,
   };
+  onUpdate(){
+    this.props.navigation.navigate({
+      name:'ProfileScreen',
+      params:{fName: this.state.firstName, lName: this.state.lastName, eMail: this.state.emailAddress},
+      merge: true,
+    });
+  }
   renderUpdateButton(){
     if(this.state.infoUpdated){
       return (
         <View>
           <Button
-            //onPress={}
+            onPress={() => this.onUpdate()}
             title="Update Information"
             color="green"
            />

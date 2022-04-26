@@ -3,16 +3,19 @@ import { StyleSheet, View, Text, Button, ScrollView, Image } from "react-native"
 import { React, useState } from "react";
 import { SafeAreaView } from "react-native-web";
 
-const testPerson = {
-  fName: "John",
-  lName: "John",
-  username: "hikingguy882",
-  email: "RealPersonEmail@gmail.com",
-  uri: "https://images.unsplash.com/photo-1605196560547-b2f7281b7355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dHJhaWx8ZW58MHx8MHx8&w=1000&q=80",
-};
+// const testPerson = {
+//   fName: "John",
+//   lName: "John",
+//   username: "hikingguy882",
+//   email: "RealPersonEmail@gmail.com",
+//   uri: "https://images.unsplash.com/photo-1605196560547-b2f7281b7355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dHJhaWx8ZW58MHx8MHx8&w=1000&q=80",
+// };
 
-const ProfileScreen = ({ navigation }) => {
-  
+const ProfileScreen = ({route, navigation}) => {
+  const { fName, lName, eMail } = route.params;
+  const testUri = 'https://images.unsplash.com/photo-1605196560547-b2f7281b7355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dHJhaWx8ZW58MHx8MHx8&w=1000&q=80';
+  // console.log(fName);
+  // console.log(lName);
   return (
     <View style={style.container}>
       <ScrollView style={style.scrollView} contentContainerStyle={{justifyContent: 'center', alignItems: 'center',}}>
@@ -21,8 +24,8 @@ const ProfileScreen = ({ navigation }) => {
         <View style={style.content}>
           {/* <Text> Profile screen </Text>
           <Text> This is a work in progress </Text> */}
-          <Image source={{uri: testPerson.uri}} style={style.profilePhoto}/>
-          <Text style={style.personText}> {testPerson.fName} {testPerson.lName} </Text>
+          <Image source={{uri: testUri}} style={style.profilePhoto}/>
+          <Text style={style.personText}> {fName} {lName} </Text>
         </View>
         <View style={style.paddingView}> 
         </View>

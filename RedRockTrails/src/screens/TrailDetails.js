@@ -27,8 +27,8 @@ const TrailDetails = ({route, navigation}) => {
 
             {/* Container for "Image" and has "Image" style */}
             <View style={styles.imageContainer}>
-                <Image source={{ uri: info.uri }} style={styles.image } />
-                <Text style={styles.imageText}> {info.name} </Text>
+                <Image source={{ uri: "https://imgs.6sqft.com/wp-content/uploads/2017/01/10140523/hiking-trail.jpg" }} style={styles.image } />
+                <Text style={styles.imageText}> {info.Name} </Text>
             </View>
             
             {/* Container for "Summary" and summary text for the trail */}
@@ -89,6 +89,9 @@ const styles = StyleSheet.create({
     },
     imageText: {
         position: 'absolute',
+        textAlign: "center",
+        alignSelf: "flex-start",
+
         top: "85%",
         right: 0,
         left: 0,
@@ -97,6 +100,10 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 25,
         fontFamily: "Helvetica-Bold",
+
+        backgroundColor: "rgba(50, 50, 50, 0.85)",
+
+        
 
     },
     summaryContainer: {

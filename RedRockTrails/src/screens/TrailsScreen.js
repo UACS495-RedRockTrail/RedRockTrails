@@ -38,8 +38,10 @@ const TrailsScreen = ({ navigation }) => {
     trailAPI
       .get("Trails/ListTrails")
       .then(async function (response) {
-        setTrails(response.data.Trails); // Store trail data in array
-        setFilteredTrail(response.data.Trails);
+        // holder: used to show max of 10 trails
+        const holder = response.data.Trails.splice(0,10);
+        setTrails(holder);
+        setFilteredTrail(holder);
       })
       .catch(function (error) {
         console.log(error); // Print any errors to console
