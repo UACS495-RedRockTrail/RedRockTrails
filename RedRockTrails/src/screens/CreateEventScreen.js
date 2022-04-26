@@ -11,14 +11,13 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import SelectDropdown from "react-native-select-dropdown";
 import * as ImagePicker from "expo-image-picker";
-import trailAPI from "../api/RRTApi";
+import RRTApi from "../api/RRTApi";
 
 const CreateEventScreen = (props) => {
   const [locationV, setLocationV] = useState([]);
 
   function getTrails() {
-    trailAPI
-      .get("Trails/ListTrails")
+    RRTApi.get("Trails/ListTrails")
       .then(async function (response) {
         setLocationV(response.data.Trails); // Store trail data in array
         var tempV = [];
@@ -39,29 +38,47 @@ const CreateEventScreen = (props) => {
   const [time, setTime] = useState(null);
   const [image, setImage] = useState(null);
   const [location, setLocation] = useState(null);
+  const [dateTimeTemp, setDateTimeTemp] = useState(new Date());
 
   const submit = () => {
-    let collection = {};
-    collection.Title = title;
-    collection.Date = date;
-    collection.Time = time;
-    collection.Location = location;
-    collection.Image = image;
-
-    console.warn(collection);
-
     //objects are not null do the following two    FIXME
     //perform axios post request
     //iprops.navigation.goBack();
+    if (
+      image != null &&
+      title != null &&
+      date != null &&
+      time != null &&
+      location != null
+    ) {
+      RRTApi.post("ContentExplorer/CreateExplorer", {
+        Title: title,
+        Date: date,
+        Time: time,
+        Location: location,
+        Image: image,
+        AccountId: 0,
+        Description: "",
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error.response.data);
+        });
+      props.navigation.goBack();
+    }
   };
   const setDateV = (event, dateV) => {
     let fDate =
       dateV.getMonth() + 1 + "/" + dateV.getDate() + "/" + dateV.getFullYear();
     setDate(fDate);
+    setDateTimeTemp(dateV);
   };
   const setTimeV = (event, timeV) => {
     let fTime = timeV.getHours() + ":" + timeV.getMinutes();
     setTime(fTime);
+    setDateTimeTemp(timeV);
   };
 
   const pickImage = async () => {
@@ -97,7 +114,6 @@ const CreateEventScreen = (props) => {
   .catch((err) => {
    
   })*/
-    console.log(result);
 
     if (!result.cancelled) {
       setImage(result.uri);
@@ -120,7 +136,7 @@ const CreateEventScreen = (props) => {
           <DateTimePicker
             style={style.dateTimeStyle}
             testID="dateTimePicker"
-            value={new Date()}
+            value={dateTimeTemp}
             mode={"date"}
             is24Hour={true}
             display="default"
@@ -132,7 +148,7 @@ const CreateEventScreen = (props) => {
           <DateTimePicker
             style={style.dateTimeStyle}
             testID="dateTimePicker"
-            value={new Date()}
+            value={dateTimeTemp}
             mode={"time"}
             is24Hour={true}
             display="default"
@@ -153,7 +169,6 @@ const CreateEventScreen = (props) => {
               }}
               data={locationV}
               onSelect={(selectedItem, index) => {
-                console.log(selectedItem, index);
                 setLocation(selectedItem);
               }}
               buttonTextAfterSelection={(selectedItem, index) => {
