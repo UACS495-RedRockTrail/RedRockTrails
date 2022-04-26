@@ -29,7 +29,7 @@ const TrailScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="TrailsScreen"
         component={TrailsScreen}
-        //options={{headerLeft: (props) => null }}
+        options={{headerLeft: (props) => null }}
       />
       <stack.Screen name="TrailDetails" component={TrailDetails} />
 
@@ -49,7 +49,7 @@ const NavigationScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="NavigationScreen"
         component={NavigationScreen}
-        //options={{headerLeft: (props) => null }}
+        options={{headerLeft: (props) => null }}
       />
 
     </stack.Navigator>
@@ -68,7 +68,7 @@ const EngageScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="EngageScreen"
         component={EngageScreen}
-        //options={{headerLeft: (props) => null }}
+        options={{headerLeft: (props) => null }}
       />
       <stack.Screen
         name="NewsletterSignup"
@@ -98,6 +98,11 @@ const ProfileScreenNavigator = ({ navigation }) => {
       <stack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
+        initialParams={{
+          fName: 'John',
+          lName: 'John',
+          eMail: 'HikingGuy882@gmail.com',
+        }}
         options={{
           headerRight: () => (
             <Button
@@ -106,10 +111,29 @@ const ProfileScreenNavigator = ({ navigation }) => {
               color="green"
             />
           ),
-          //headerLeft: (props) => null,
+          // headerLeft: (props) => null,
+          headerLeft: () => (
+            <Button
+              onPress={() => navigation.popToTop()}
+              title="Logout"
+              color="green"
+            />
+          ),
         }}
       />
-      <stack.Screen name ="Edit" component={SettingsScreen} />
+      <stack.Screen 
+        name ="Edit" 
+        component={SettingsScreen} 
+        options={{
+          // headerRight: () => (
+          //   <Button
+          //     onPress={() => navigation.popToTop()}
+          //     title="Logout"
+          //     color="green"
+          //   />
+          // ),
+        }}
+        />
       <stack.Screen name="Login" component={LoginScreen} />
       <stack.Screen name="CreateAccount" component={CreateAccountScreen} />
 

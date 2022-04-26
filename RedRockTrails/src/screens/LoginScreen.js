@@ -49,11 +49,6 @@ class LoginScreen extends Component{
             color = "green"
             onPress={() => this.loginTest()}
         />
-        <Button
-            title="Continue as Guest"
-            color = "green"
-            onPress={() => this.props.navigation.navigate('Main')}
-        />
         <Text style={style.incorrectLoginText}> {this.state.statement} </Text>
       </View>
     );
@@ -93,3 +88,10 @@ const style = StyleSheet.create({
   
 
 export default LoginScreen;
+
+
+{/* <Button
+title="Continue as Guest"
+color = "green"
+onPress={() => this.props.navigation.navigate('Main')}
+/> */}
