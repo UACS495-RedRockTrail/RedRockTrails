@@ -1,9 +1,9 @@
 import { Children } from "react";
 import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
 
-const summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-const parking = "On road near trailhead"
-const amenities = "Benches, Lighting, Picnic Tables, Safety Fencing"
+const summary = "This greenway runs along the former Birmingham Mineral Railroad grade on the north face of Red Mountain, offering views of Vulcan, the world’s largest cast iron statue from below, and amazing views of downtown Birmingham and Jones Valley from above. The new western half of the trail is completed and continues along the Mineral Railroad bed to Greensprings Highway. This second mile is crushed stone.";
+const parking = "A new parking lot is available on Richard Arrington Boulevard under the Vulcan Statue where the trail meets the road. The lot is open from dawn to dusk, and the gate closes at night."
+const amenities = "Trash cans, benches, and bathrooms available at Vulcan Park and Museum"
 
 // Simple component to create title for information
 const Title = (props) => {
